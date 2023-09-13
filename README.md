@@ -1,4 +1,4 @@
-# Choose-Your-Own-Adventure
+# Choose Your Own Adventure !
 Choose Your Own Adventure (CYOA) stories using the Language Model LLM.
 
 This repository contains code that enables users to create and explore Choose Your Own Adventure (CYOA) stories using the Language Model LLM. With this code, users can craft their own interactive narratives, where the reader/player can make decisions that impact the progression and outcome of the story.
