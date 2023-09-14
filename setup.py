@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="choose-your-own-adventure",
-    version="0.1.0",
+    version="0.2.0",
     author="Gael Reinaudi",
     author_email="gael.reinaudi@gmail.com",
     description="Choose Your Own Adventure (CYOA) stories using the Language Model LLM.",
@@ -21,7 +21,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'cyoa=adventure.game:main',
+            'cyoa=game.main:play',
         ],
     },
 )

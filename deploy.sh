@@ -10,7 +10,7 @@ python setup.py sdist
 python setup.py bdist_wheel
 
 # Upload to TestPyPI using twine
-twine upload --repository-url https://pypi.org/legacy/ dist/*
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
 # Prompt the user to confirm if they want to upload to actual PyPI
 read -p "Upload to PyPI? (y/n) " -n 1 -r
