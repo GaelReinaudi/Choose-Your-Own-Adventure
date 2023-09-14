@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="choose-your-own-adventure",
-    version="0.2.0",
+    version="0.3.0",
     author="Gael Reinaudi",
     author_email="gael.reinaudi@gmail.com",
     description="Choose Your Own Adventure (CYOA) stories using the Language Model LLM.",
