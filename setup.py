@@ -3,9 +3,11 @@ from setuptools import setup, find_packages
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+packages = find_packages()
+print(f"{packages=}")
 setup(
     name="choose-your-own-adventure",
-    version="0.3.0",
+    version="0.4.0",
     author="Gael Reinaudi",
     author_email="gael.reinaudi@gmail.com",
     description="Choose Your Own Adventure (CYOA) stories using the Language Model LLM.",
@@ -21,7 +23,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'cyoa=game.main:play',
+            'cyoa=cyoa_game.main:play',
         ],
     },
 )

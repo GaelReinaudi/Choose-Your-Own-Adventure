@@ -3,7 +3,7 @@ from cyoa_game.adventure import Adventure
 import asyncio
 
 
-async def play():
+async def a_play():
     print("Welcome to Choose-Your-Own-Adventure!")
     api_key = config.OpenAIKeyManager.get_api_key()
 
@@ -13,5 +13,9 @@ async def play():
         await adventure.step()
 
 
+def play():
+    asyncio.run(a_play())
+
+
 if __name__ == '__main__':
-    asyncio.run(play())
+    play()
