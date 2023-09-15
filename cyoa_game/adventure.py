@@ -2,6 +2,7 @@ import asyncio
 import llm
 import textwrap
 
+
 class Adventure:
     def __init__(self, api_key):
         self.model = llm.get_model("gpt-3.5-turbo")
@@ -22,17 +23,18 @@ something very strange while coding on her linux machine...
         formatted_text = self.format_text(response.text())
         print(formatted_text)
         key = input("Make your choice:")
-        
 
     async def step(self):
         pass
 
 
 async def test():
-    import game.config as config
+    import cyoa_game.config as config
+
     adventure = Adventure(config.OpenAIKeyManager.get_api_key())
     await adventure.start()
     await adventure.step()
+
 
 if __name__ == '__main__':
     asyncio.run(test())
