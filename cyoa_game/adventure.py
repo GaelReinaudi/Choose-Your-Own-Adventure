@@ -7,10 +7,17 @@ from langchain.chat_models import ChatOpenAI
 
 
 class Adventure:
+    temperature = 0.7
+    end_of_first_part = "And now, turn the page."
+
     def __init__(self, api_key):
         # self.model = llm.get_model("gpt-3.5-turbo-16k")
         # self.model.key = api_key
-        self.model = ChatOpenAI(model="gpt-3.5-turbo-16k", openai_api_key=api_key)
+        self.model = ChatOpenAI(
+            model="gpt-3.5-turbo-16k",
+            openai_api_key=api_key,
+            temperature=self.temperature,
+        )
 
     def inital_prompt(self) -> str:
         messages = [
@@ -18,12 +25,17 @@ class Adventure:
                 content="You are a talented author of Choose-Your-Own-Adventure books"
             ),
             HumanMessage(
-                content="""
+                content=f"""
 Write the first introductory part of a book of the type "chose your own adventure" \
-where the reader, which is the main character, is a girl coder. the introductory part \
-is typically 3 pages long.
-Remarque: do not mention the page numbers, just write it in one \
-block of a dozen paragraphs.
+where the reader, which is the main character, is a 17 year old girl coder. 
+The introductory part is typically 3 pages long.
+Write several paragraphs separated by blank lines.
+
+Remarque: 
+- Do not mention the page numbers! 
+- Do Not give any choices to the reader yet.
+- End the text with {self.end_of_first_part}
+
 """
             ),
         ]
@@ -36,7 +48,7 @@ block of a dozen paragraphs.
         response = self.model(self.inital_prompt())
         formatted_text = self.format_text(response.content)
         print(formatted_text)
-        key = input("Make your choice:")
+        return formatted_text
 
     async def step(self):
         pass
