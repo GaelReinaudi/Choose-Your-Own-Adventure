@@ -10,7 +10,8 @@ async def test_end_first_chapter():
     text = await adventure.start()
     check.is_true(
         text.strip().endswith(adventure.end_of_first_part),
-        "The text should end with the end of the first part.",
+        "The text should end with the end of the first part:"
+        f"\n{adventure.end_of_first_part}",
     )
 
 
