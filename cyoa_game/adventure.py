@@ -1,11 +1,13 @@
 import asyncio
+# Warning control
+import warnings
+
+warnings.filterwarnings("ignore")
 
 # import llm
 import textwrap
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
-from langchain.chat_models import ChatOpenAI
-
-
+from langchain_openai import ChatOpenAI
 class Adventure:
     system_def = "You are a talented author of Choose-Your-Own-Adventure books"
     temperature = 0.7
@@ -61,14 +63,14 @@ offering to turn to various pages.
         return textwrap.fill(input_text, width=width)
 
     async def start(self):
-        response = self.model(self.inital_prompt())
+        response = self.model.invoke(self.inital_prompt())
         formatted_text = self.format_text(response.content)
         print(formatted_text)
         input("Press Enter to continue...")
         return formatted_text
 
     async def step(self):
-        response = self.model(self.next_prompt())
+        response = self.model.invoke(self.next_prompt())
         formatted_text = self.format_text(response.content)
         print(formatted_text)
         choice = input("Make your choice...")
